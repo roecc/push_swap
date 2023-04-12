@@ -141,10 +141,11 @@ int	get_pivot(int *arr, int nb_chunks)
 {
 	int	len;
 
-	len = 0;
+	len = 0;//sizeof(arr);
 	while (arr[len])
 		len++;
-	return (arr[len/2]);
+	printf ("\nlen: %d, pivot: %d\n", len, arr[len/2]);
+	return (arr[len/10]);
 }
 
 void	push_by_pivot(t_list **lsts, int p)
