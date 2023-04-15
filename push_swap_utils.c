@@ -6,7 +6,7 @@
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 14:22:06 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/04/15 11:20:42 by ligabrie         ###   ########.fr       */
+/*   Updated: 2023/04/15 11:36:57 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,7 @@ t_list	*rev_rotate(t_list *lst)
 	return (lst);
 }
 
+/*
 t_list	*parse_int (char *s)
 {
 	int	i;
@@ -184,6 +185,27 @@ t_list	*parse_int (char *s)
 			curr->next = ft_lstnew(ft_atoi(s + i));
 			curr = curr->next;
 		}
+	}
+	return (lst);
+}
+*/
+
+t_list	*parse_int (char **av)
+{
+	int	i;
+	int	nn;
+	t_list	*lst;
+	t_list	*curr;
+
+	lst = ft_lstnew(ft_atoi(av[1]));
+	curr = lst;
+	nn = 0;
+	i = 1;
+	while (av[++i])
+	{
+		nn = 0;
+		curr->next = ft_lstnew(ft_atoi(av[i]));
+		curr = curr->next;
 	}
 	return (lst);
 }

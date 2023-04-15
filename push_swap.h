@@ -6,7 +6,7 @@
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:53:20 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/04/11 19:27:26 by ligabrie         ###   ########.fr       */
+/*   Updated: 2023/04/15 11:57:07 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_list	*rotate(t_list *lst);
 t_list	*rev_rotate(t_list *lst);
 void	push_to (t_list *lsts[], char c);
 
-t_list	*parse_int (char *s);
+t_list	*parse_int (char **av);
 t_list	**parse_ps (char *inst, t_list *lsts[]);
 
 t_list	**sort(t_list **lsts);
