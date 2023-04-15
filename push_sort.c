@@ -137,16 +137,26 @@ int	*arr_sort(int *arr)
 	return(arr);
 }*/
 
-int	get_pivot(int *arr, int nb_chunks)
+int	*get_pivots(int *arr, int nb_chunks)
 {
 	int	len;
+	int	i;
+	int	*pivots;
 
 	len = 0;//sizeof(arr);
+	i = -1;
 	//printf ("\nentries: ");
 	while (arr[len])
 	{
 		//printf("%d, ", arr[len]);
 		len++;
+	}
+	pivots = (int *)malloc(sizeof(int) * nb_chunks);
+	if (!pivots)
+		return(NULL);
+	while (++i < nb_chunks)
+	{
+		pivots[]
 	}
 	//printf ("\nlen: %d, pivot: %d\n", len, arr[len/2]);
 	return (arr[len/2]);
