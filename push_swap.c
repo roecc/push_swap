@@ -15,7 +15,7 @@ int main (int argc, char *argv[])
 	lsts[0] = parse_int(argv[1]);
 	lsts[1] = NULL;
 
-	lst_log(lsts);
+	//lst_log(lsts);
 
 	if (argc == 3)
 		parse_ps(argv[2], lsts);
@@ -27,10 +27,9 @@ int main (int argc, char *argv[])
 	//lsts[0] = rotate(lsts[0]);
 	
 	sort(lsts);
-	//lst_log(lsts);
 	rrr(lsts);
-	//fake_sort(lsts[0]);
-	lst_log(lsts);
-	printf("\nsortet? %d", is_sortet(lsts));
+	
+	//lst_log(lsts);
+	//printf("\nsortet? %d", is_sortet(lsts));
 	return (0);
 }

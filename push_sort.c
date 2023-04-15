@@ -142,10 +142,14 @@ int	get_pivot(int *arr, int nb_chunks)
 	int	len;
 
 	len = 0;//sizeof(arr);
+	//printf ("\nentries: ");
 	while (arr[len])
+	{
+		//printf("%d, ", arr[len]);
 		len++;
-	printf ("\nlen: %d, pivot: %d\n", len, arr[len/2]);
-	return (arr[len/10]);
+	}
+	//printf ("\nlen: %d, pivot: %d\n", len, arr[len/2]);
+	return (arr[len/2]);
 }
 
 void	push_by_pivot(t_list **lsts, int p)
@@ -153,7 +157,7 @@ void	push_by_pivot(t_list **lsts, int p)
 	int	i;
 	int	len;
 
-	printf("\npivot: %d\n", p);
+	//printf("\npivot: %d\n", p);
 	len = lst_len(lsts[0]);
 	i = 0;
 	while (i < len)
@@ -166,7 +170,7 @@ void	push_by_pivot(t_list **lsts, int p)
 			//lsts[0] = rotate(lsts[0]);
 		}
 		i++;
-		lst_log(lsts);
+		//lst_log(lsts);
 	}
 }
 
@@ -178,7 +182,7 @@ void	b_sort(t_list **lsts, int lowest)
 	head = lsts[1];
 	while (!is_rev_sortet(lsts[1]))
 	{
-		printf("-");
+		//printf("-");
 	}
 }
 

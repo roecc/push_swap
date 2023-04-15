@@ -6,7 +6,7 @@
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 14:22:06 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/04/11 19:28:36 by ligabrie         ###   ########.fr       */
+/*   Updated: 2023/04/15 11:20:42 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,11 +151,14 @@ t_list	*rev_rotate(t_list *lst)
 		return (lst);
 	old_first = lst;
 	old_last = lst;
-	while (old_last->next->next)
-		old_last = old_last->next;
-	lst = old_last->next;
-	old_last->next->next = old_first;
-	old_last->next = NULL;
+	if (old_last->next)
+	{
+		while (old_last->next->next)
+			old_last = old_last->next;
+		lst = old_last->next;
+		old_last->next->next = old_first;
+		old_last->next = NULL;
+	}
 	return (lst);
 }
 
