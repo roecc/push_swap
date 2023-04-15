@@ -28,7 +28,7 @@ int main (int argc, char *argv[])
 	//lsts[0] = rotate(lsts[0]);
 	
 	sort(lsts);
-	rrr(lsts);
+	//rrr(lsts);
 	
 	//lst_log(lsts);
 	//printf("\nsortet? %d", is_sortet(lsts));

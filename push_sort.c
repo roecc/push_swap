@@ -122,6 +122,7 @@ int	*arr_sort(int *arr)
 	int	arr_len;
 
 	i = 0;
+	len = lst_len(lsts[0]);
 	while (arr[i])
 		i++;
 	arr_len = i;
@@ -137,7 +138,7 @@ int	*arr_sort(int *arr)
 	return(arr);
 }*/
 
-int	*get_pivots(int *arr, int nb_chunks)
+/* int	*get_pivots(int *arr, int nb_chunks)
 {
 	int	len;
 	int	i;
@@ -160,9 +161,25 @@ int	*get_pivots(int *arr, int nb_chunks)
 	}
 	//printf ("\nlen: %d, pivot: %d\n", len, arr[len/2]);
 	return (arr[len/2]);
+} */
+
+int	*get_pivots(int *arr, int nc, int *pivots)
+{
+	int	len;
+	int	i;
+
+	len = 0;//sizeof(arr);
+	i = -1;
+	//printf ("\nentries: ");
+	while (arr[len])
+		len++;
+	pivots[0] = arr[len/nc - 1];
+	pivots[1] = arr[len/nc + len/nc/2 -1];
+	//printf ("\nlen: %d, pivot: %d\n", len, arr[len/2]);
+	return (pivots);
 }
 
-void	push_by_pivot(t_list **lsts, int p)
+/* void	push_by_pivot(t_list **lsts, int p)
 {
 	int	i;
 	int	len;
@@ -182,7 +199,66 @@ void	push_by_pivot(t_list **lsts, int p)
 		i++;
 		//lst_log(lsts);
 	}
+} */
+
+void	push_by_pivot(t_list **lsts, int *p)
+{
+	int	i;
+	int	len;
+	int	tmp;
+
+	//printf("\npivot: %d\n", p);
+	len = lst_len(lsts[0]);
+	i = 0;
+	while (i < len)
+	{
+		tmp = lsts[0]->data;
+		if (tmp > p[0])
+		{
+			pb(lsts);
+			if (tmp <= p[1])
+			{
+				if (lsts[0]->data <= p[0])
+					rr (lsts);
+				else
+					rb (lsts);
+			}
+		}
+		else
+			ra (lsts);
+		i++;
+	}
 }
+
+void	rev_push_by_pivot(t_list **lsts, int *p)
+{
+	int	i;
+	int	len;
+	int	tmp;
+
+	//printf("\npivot: %d\n", p);
+	len = lst_len(lsts[0]);
+	i = 0;
+	while (i < len)
+	{
+		tmp = lsts[0]->data;
+		if (tmp > p[0])
+		{
+			pb(lsts);
+			if (tmp > p[1])
+			{
+				if (lsts[0]->data <= p[0])
+					rr (lsts);
+				else
+					rb (lsts);
+			}
+		}
+		else
+			ra (lsts);
+		i++;
+	}
+}
+
 
 void	b_sort(t_list **lsts, int lowest)
 {
@@ -196,15 +272,41 @@ void	b_sort(t_list **lsts, int lowest)
 	}
 }
 
+void	walk_to_red (t_list **lsts, int	p)
+{
+	while (lsts[1]->data < p)
+		rb (lsts);
+}
+
 
 t_list	**sort(t_list **lsts)
 {
 	int	nb_chunks;
 	int	*arr;
+	int	piv[2];
+	int	p_line;
 
 	arr = lst_to_arr(lsts[0]);
 	arr = arr_sort(arr);
 
-	push_by_pivot(lsts, get_pivot(arr, 1));
+	get_pivots(arr, 2, piv);
+	p_line = piv[1];	
+	//printf("\npivs: %d, %d\n", piv[0], piv[1]);
+	push_by_pivot(lsts, piv);
+
+	get_pivots(arr, 4, piv);
+	rev_push_by_pivot(lsts, piv);
+
+	//walk to red set
+	walk_to_red (lsts, p_line);
+
+	get_pivots(arr, 8, piv);
+	rev_push_by_pivot(lsts, piv);
+
+	walk_to_red (lsts, p_line);
+
+	get_pivots(arr, 16, piv);
+	rev_push_by_pivot(lsts, piv);
+
 	return(lsts);
 }
