@@ -342,6 +342,8 @@ t_list	**sort(t_list **lsts)
 	int	piv[2];
 	int	p_line;
 
+	int	i;
+
 	arr = lst_to_arr(lsts[0]);
 	arr = arr_sort(arr);
 
@@ -349,25 +351,16 @@ t_list	**sort(t_list **lsts)
 	p_line = piv[1];	
 	push_by_pivot(lsts, piv);
 	//printf("\npivs: %d, %d\n", piv[0], piv[1]);
-	//printf("\npivs: %d, %d\n", piv[0], piv[1]);
 
+	i = 2;
+	while (i < 128)
+	{
+		i = i * 2;
+		get_pivots(arr, i, piv);
+		rev_push_by_pivot(lsts, piv);
 
-	get_pivots(arr, 4, piv);
-	rev_push_by_pivot(lsts, piv);
-	//printf("\npivs: %d, %d\n", piv[0], piv[1]);
-
-	//walk to red set
-	walk_to_red (lsts, p_line);
-	
-	get_pivots(arr, 8, piv);
-	rev_push_by_pivot(lsts, piv);
-
-	walk_to_red (lsts, p_line);
-
-	get_pivots(arr, 16, piv);
-	rev_push_by_pivot(lsts, piv);
-
-	walk_to_red (lsts, p_line);
+		walk_to_red (lsts, p_line);
+	}
 /*
 
 */
