@@ -187,7 +187,8 @@ int	*get_pivots(int *arr, int nc, int *pivots)
 	pivots[0] = arr[p1 - (len/nc/2)];
 	//				100/2 * 2-1 = 50
 	//				100/4 * 4-1 = 75
-	pivots[1] = arr[p1 - 1];
+	pivots[1] = arr[p1];
+	//pivots[1] = arr[p1 - 1];
 	
 	//printf ("\nlen: %d, pivot: %d\n", len, arr[len/2]);
 	return (pivots);
@@ -334,6 +335,60 @@ void	walk_to_red (t_list **lsts, int	p)
 		rrb (lsts);
 }
 
+int	find_next(int n, t_list **lsts)
+{
+	t_list	*current;
+	int		i;
+	int		bound;
+	int		found;
+	bound = 40000;
+	i = 0;
+	found = 0;
+	/*while (lsts[1]->data != n && bound-- > 0)
+	{
+		rb(lsts);
+		i++;
+	}
+	pa(lsts);*/
+	current = lsts[1];
+	while (current->next && i < (lst_len(lsts[1]) / 2))
+	{
+		if (current->data == n)
+		{
+			found = 1;
+			break;
+		}
+		current = current->next;
+		i++;
+	}
+	while (lsts[1]->data != n && bound-- > 0)
+	{
+		if (found)
+			rb(lsts);
+		else
+			rrb(lsts);
+		//printf ("n: %d, data: %d\n", n, lsts[1]->data);
+		//write(1, "hi\n", 3);
+	}
+	pa(lsts);
+	return (i);
+}
+
+void	return_sort(int	*arr, t_list **lsts)
+{
+	int	i;
+	int	bound;
+
+	bound = 30000;
+	while (lsts[0])
+		pb(lsts);
+	
+	//i = lst_len(lsts[1]);
+	while (lsts[1] && bound-- > 0)
+	{
+		find_next(arr[lst_len(lsts[1]) - 1], lsts);
+	}
+}
 
 t_list	**sort(t_list **lsts)
 {
@@ -352,17 +407,23 @@ t_list	**sort(t_list **lsts)
 	push_by_pivot(lsts, piv);
 	//printf("\npivs: %d, %d\n", piv[0], piv[1]);
 
+	/*i = -1;
+	while (++i < lst_len(lsts[1]))
+	{
+		printf ("%d\n", arr[i]);
+	}*/
+
 	i = 2;
-	while (i < 128)
+	while (i <= 128)
 	{
 		i = i * 2;
 		get_pivots(arr, i, piv);
 		rev_push_by_pivot(lsts, piv);
 
+		//printf("piv[0]: %d, piv[1]: %d\n", piv[0], piv[1]);
 		walk_to_red (lsts, p_line);
 	}
-/*
+	return_sort(arr, lsts);
 
-*/
 	return(lsts);
 }

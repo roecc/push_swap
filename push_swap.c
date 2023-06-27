@@ -20,7 +20,6 @@ int main (int argc, char *argv[])
 
 	if (argc == 3)
 		parse_ps(argv[2], lsts);
-
 	//lsts[0] = rotate(lsts[0]);
 	//lst_log(lsts);
 	//lsts[0] = rotate(lsts[0]);
