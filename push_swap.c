@@ -31,5 +31,6 @@ int main (int argc, char *argv[])
 	
 	//lst_log(lsts);
 	//printf("\nsortet? %d", is_sortet(lsts));
+	lst_free(lsts);
 	return (0);
 }

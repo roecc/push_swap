@@ -426,6 +426,6 @@ t_list	**sort(t_list **lsts)
 		walk_to_red (lsts, p_line);
 	}
 	return_sort(arr, lsts);
-
+	free(arr);
 	return(lsts);
 }
