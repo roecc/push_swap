@@ -342,6 +342,7 @@ int	find_next(int n, t_list **lsts)
 	int		bound;
 	int		found;
 	bound = 40000;
+	int		blen;
 	i = 0;
 	found = 0;
 	/*while (lsts[1]->data != n && bound-- > 0)
@@ -351,7 +352,8 @@ int	find_next(int n, t_list **lsts)
 	}
 	pa(lsts);*/
 	current = lsts[1];
-	while (current->next && i < (lst_len(lsts[1]) / 2))
+	blen = lst_len(lsts[1]);
+	while (current->next && i < ((blen - i) / 2))
 	{
 		if (current->data == n)
 		{
