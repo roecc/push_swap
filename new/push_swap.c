@@ -6,7 +6,7 @@
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 14:38:03 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/06/30 14:38:57 by ligabrie         ###   ########.fr       */
+/*   Updated: 2023/06/30 15:50:51 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ int	main(int argc, char *argv[])
 
 	lsts[0] = parse_int(argv);
 	lsts[1] = NULL;
-	if (argc == 3)
-		parse_ps(argv[2], lsts);
-	sort(lsts);
+	
+	sort_three(lsts);
 	lst_free(lsts);
 	return (0);
 }
