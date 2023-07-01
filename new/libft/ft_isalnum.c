@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 14:38:03 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/07/01 14:34:02 by ligabrie         ###   ########.fr       */
+/*   Created: 2022/11/28 12:37:37 by ligabrie          #+#    #+#             */
+/*   Updated: 2022/12/18 22:01:40 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int argc, char *argv[])
+int	ft_isalnum(int c)
 {
-	t_list	*lsts[2];
-
-	if (argc > 3)
-		write(1, "error\n", 6);
-	
-
-	lsts[0] = parse_int(argv);
-	lsts[1] = NULL;
-	
-	sort_three(lsts);
-	//ft_lstclear(lsts[0]);
-	//ft_lstclear(lsts[1]);
-	lst_free(lsts);
-	return (0);
+	if (c >= 'a' && c <= 'z')
+		return (8);
+	if (c >= 'A' && c <= 'Z')
+		return (8);
+	if (c >= '0' && c <= '9')
+		return (8);
+	else
+		return (0);
 }

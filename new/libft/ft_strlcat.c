@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 14:38:03 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/07/01 14:34:02 by ligabrie         ###   ########.fr       */
+/*   Created: 2022/11/29 17:58:32 by ligabrie          #+#    #+#             */
+/*   Updated: 2022/12/18 19:22:18 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	t_list	*lsts[2];
+	size_t				i;
+	long unsigned int	len;
 
-	if (argc > 3)
-		write(1, "error\n", 6);
-	
-
-	lsts[0] = parse_int(argv);
-	lsts[1] = NULL;
-	
-	sort_three(lsts);
-	//ft_lstclear(lsts[0]);
-	//ft_lstclear(lsts[1]);
-	lst_free(lsts);
-	return (0);
+	len = ft_strlen(dst);
+	if (size > 0)
+	{
+		i = 0;
+		while (i + len < size -1 && src[i] != '\0')
+		{
+			dst[i + len] = src[i];
+			i++;
+		}
+		dst[i + len] = '\0';
+	}
+	if (size < len)
+		len = size;
+	return (ft_strlen((char *)src) + len);
 }

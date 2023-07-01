@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 14:38:03 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/07/01 14:34:02 by ligabrie         ###   ########.fr       */
+/*   Created: 2022/12/15 22:42:48 by admin             #+#    #+#             */
+/*   Updated: 2022/12/18 19:21:57 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+char	*ft_strdup(const char *s1)
 {
-	t_list	*lsts[2];
+	char	*dup;
+	size_t	i;
 
-	if (argc > 3)
-		write(1, "error\n", 6);
-	
-
-	lsts[0] = parse_int(argv);
-	lsts[1] = NULL;
-	
-	sort_three(lsts);
-	//ft_lstclear(lsts[0]);
-	//ft_lstclear(lsts[1]);
-	lst_free(lsts);
-	return (0);
+	dup = (char *)malloc((ft_strlen((char *)s1) + 1) * sizeof(char));
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		dup[i] = s1[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
 }

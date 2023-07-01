@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 14:38:03 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/07/01 14:34:02 by ligabrie         ###   ########.fr       */
+/*   Created: 2022/11/30 13:56:52 by ligabrie          #+#    #+#             */
+/*   Updated: 2022/12/14 12:24:50 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int argc, char *argv[])
+int	ft_tolower(int c)
 {
-	t_list	*lsts[2];
-
-	if (argc > 3)
-		write(1, "error\n", 6);
-	
-
-	lsts[0] = parse_int(argv);
-	lsts[1] = NULL;
-	
-	sort_three(lsts);
-	//ft_lstclear(lsts[0]);
-	//ft_lstclear(lsts[1]);
-	lst_free(lsts);
-	return (0);
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	if (c >= -128 && c < -1)
+		c = 256 + c;
+	return (c);
 }
