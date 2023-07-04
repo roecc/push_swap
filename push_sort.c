@@ -6,7 +6,7 @@
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 13:40:33 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/07/04 14:57:20 by ligabrie         ###   ########.fr       */
+/*   Updated: 2023/07/04 15:57:57 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,10 +160,61 @@ void	return_sort(int	*arr, t_list **lsts)
 	int	bound;
 
 	bound = 30000;
-	while (lsts[0])
-		pb(lsts);
+	/*while (lsts[0])
+		pb(lsts);*/
 	while (lsts[1] && bound-- > 0)
 		find_next(arr[lst_len(lsts[1]) - 1], lsts);
+}
+//complex sort //top & bottom are indices can be solved by math
+void	comp_sort(t_list **lsts, int top, int bottom, int *arr)
+{
+	int	chi;
+	int	clo;
+	int	steps_down;
+	int	steps_up;
+	t_list	*current;
+	int	max = 5000;
+	current = lsts[1];
+	chi = top;
+	clo = bottom;
+	steps_up = 0;
+	steps_down = 0;
+	while (chi != clo && max--)
+	{
+		while (current->next)
+		{
+			if (current->data == arr[chi] || current->data == arr[clo])
+				break;
+			current = current->next;
+			steps_down++;
+		}
+		while (current->next)
+		{
+			current = current->next;
+			if (current->data == arr[chi] || current->data == arr[clo])
+			{
+				while (current->next)
+				{
+					steps_up++;
+					current = current->next;
+				}
+			}
+		}
+		if (steps_down < steps_up)
+			while (steps_down--)
+				rb(lsts);
+		else
+			while (steps_up--)
+				rrb(lsts);
+		pa(lsts);
+		if (lsts[0]->data == arr[chi])
+			chi--;
+		else if (lsts[0]->data == arr[clo])
+		{
+			clo++;
+			ra(lsts);
+		}
+	}
 }
 
 void	recu(int *arr, int n, int len, t_list **lsts)
@@ -171,22 +222,23 @@ void	recu(int *arr, int n, int len, t_list **lsts)
 	int	mid; //1
 	int	mid_mid; //0
 
-	//replaces get piv
 	mid = arr[(len / n) * (n - 1)];
 	mid_mid = arr[(len / n) * (n - 1) - (len / n / 2)];
-	/*write (1, "\n\n", 2);
-	ft_putnbr_fd(mid, 1);
-	write (1, "\n\n", 2);
-	ft_putnbr_fd(mid_mid, 1);
-	write (1, "\n\n", 2);*/
 	if (n == 2)
 		push_by_pivot(lsts, mid, mid_mid);
 	else
 		rev_push_by_pivot(lsts, mid, mid_mid);
 	if ((len / n / 2) >= 4)
+	{
 		recu(arr, n * 2, len, lsts);
+		comp_sort(lsts, mid, mid_mid, arr);
+	}
 	else
+	{
+		while (lsts[0]->next->next->next)
+			pb(lsts);
 		sort_three(lsts);
+	}
 }
 
 void	push_sort(t_list **lsts)
