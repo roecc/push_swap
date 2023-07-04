@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 23:31:35 by admin             #+#    #+#             */
-/*   Updated: 2022/12/18 20:25:40 by ligabrie         ###   ########.fr       */
+/*   Created: 2023/07/04 13:05:00 by ligabrie          #+#    #+#             */
+/*   Updated: 2023/07/04 13:17:20 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+void	push_to(t_list *lsts[], char c)
 {
-	int		i;
-	t_list	*tmp;
+	int		to;
+	int		from;
+	t_list	*a_new_first;
 
-	if (!lst)
-		return (0);
-	tmp = lst;
-	i = 1;
-	while (tmp->next != NULL)
+	to = c - 'a';
+	from = 1 - to;
+	if (lsts[from])
 	{
-		tmp = tmp->next;
-		i++;
+		a_new_first = lsts[from]->next;
+		lsts[from]->next = lsts[to];
+		lsts[to] = lsts[from];
+		lsts[from] = a_new_first;
 	}
-	return (i);
+}
+
+void	pa(t_list *lsts[])
+{
+	push_to(lsts, 'a');
+	write(1, "pa\n", 3);
+}
+
+void	pb(t_list *lsts[])
+{
+	push_to(lsts, 'b');
+	write(1, "pb\n", 3);
 }

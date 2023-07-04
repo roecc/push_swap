@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 15:07:55 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/06/30 15:49:29 by ligabrie         ###   ########.fr       */
+/*   Created: 2023/07/04 13:01:44 by ligabrie          #+#    #+#             */
+/*   Updated: 2023/07/04 13:20:43 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	cases(t_list **lsts, int c)
 void	sort_three(t_list **lsts)
 {
 	int	nbs[3];
+
 	if (lst_len(lsts[0]) == 3)
 	{
 		nbs[0] = lsts[0]->data;
@@ -43,7 +44,7 @@ void	sort_three(t_list **lsts)
 		nbs[2] = lsts[0]->next->next->data;
 	}
 	if (nbs[0] < nbs[1] && nbs[1] < nbs[2])
-		return;
+		return ;
 	if (nbs[0] > nbs[1])
 	{
 		if (nbs[1] > nbs[2])
@@ -58,4 +59,3 @@ void	sort_three(t_list **lsts)
 	else
 		cases(lsts, 0);
 }
-

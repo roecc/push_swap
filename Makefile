@@ -5,43 +5,37 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/06/26 13:58:16 by ligabrie          #+#    #+#              #
-#    Updated: 2023/07/01 14:40:22 by ligabrie         ###   ########.fr        #
+#    Created: 2023/07/04 12:18:38 by ligabrie          #+#    #+#              #
+#    Updated: 2023/07/04 13:41:37 by ligabrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
-
-SOURCES = \
+NAME	:= push_swap
+CC		:= cc
+CFLAGS	:= -Wextra -Wall -Werror
+LIBFT	:= ./libft/libft.a
+SRCS	:= \
 push_swap.c \
+lst_utils.c \
 push_swap_utils.c \
-push_sort.c \
-sort_three.c
-
-OBJECTS = $(SOURCES:.c=.o)
-
-CC = cc -Wall -Wextra -Werror
-CC_FLAGS = -Llibft -lft
-
-%.o:%.c
-	$(CC) -c -o $@ $^
-	
-all:	libft $(NAME)
-
-libft: 
-	make -C libft
-	
-$(NAME): $(SOURCES) libft/libft.a
-	$(CC) -o $@ $< $(CC_FLAGS)
-
+sort_three.c \
+swap.c \
+push.c \
+rotate.c \
+rev_rotate.c \
+push_sort.c
+OBJS	:= $(SRCS:.c=.o)
+all: $(NAME)
+$(NAME): $(OBJS)
+	@make -C ./libft 
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+%.o: %.c
+	@$(CC) $(CFLAGS) -o $@ -c $< && printf "Compiling: $(notdir $<)"
 clean:
-	rm -f $(OBJECTS)
-	make -C libft clean
-	
+	@make clean -C ./libft 
+	@rm -f $(OBJS)
 fclean: clean
-	rm -f $(NAME) libft/libft.a
-	make -C libft fclean
-
-re:	fclean all
-
-.PHONY: libft clean fclean re
+	@make fclean -C ./libft 
+	@rm -f $(NAME) $(NAME_BONUS)
+re: fclean all
+.PHONY: all, clean, fclean, re

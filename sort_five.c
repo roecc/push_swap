@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   sort_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 14:53:01 by ligabrie          #+#    #+#             */
-/*   Updated: 2022/12/18 19:22:23 by ligabrie         ###   ########.fr       */
+/*   Created: 2023/07/04 13:23:31 by ligabrie          #+#    #+#             */
+/*   Updated: 2023/07/04 13:41:17 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-long int	ft_strlen(char *s)
+void sort_five(t_list **lsts)
 {
+	int	arr[5];
 	int	i;
+	t_list	*current;
 
 	i = 0;
-	while (s[i] != '\0')
+	current = lsts[0];
+	while (current)
 	{
+		arr[i] = current->data;
 		i++;
+		current = current->next;
 	}
-	return (i);
 }
