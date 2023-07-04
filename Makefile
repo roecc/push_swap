@@ -6,7 +6,7 @@
 #    By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 12:18:38 by ligabrie          #+#    #+#              #
-#    Updated: 2023/07/04 13:41:37 by ligabrie         ###   ########.fr        #
+#    Updated: 2023/07/04 17:50:31 by ligabrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ push_swap.c \
 lst_utils.c \
 push_swap_utils.c \
 sort_three.c \
+sort_five.c \
 swap.c \
 push.c \
 rotate.c \

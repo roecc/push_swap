@@ -6,7 +6,7 @@
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 12:29:12 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/07/04 13:41:54 by ligabrie         ###   ########.fr       */
+/*   Updated: 2023/07/04 17:49:44 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_list	*lst_new(int data);
 void	lst_free(t_list *lsts[]);
 int		lst_len(t_list *lst);
 void	sort_three(t_list **lsts);
+void 	sort_five(t_list **lsts, int *arr);
 
 void	sa(t_list *lsts[]);
 void	sb(t_list *lsts[]);
