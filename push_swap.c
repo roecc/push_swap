@@ -6,7 +6,7 @@
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 12:29:01 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/07/04 14:54:33 by ligabrie         ###   ########.fr       */
+/*   Updated: 2023/07/05 09:47:17 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check(t_list **lsts)
 {
-	t_list *current;
+	t_list	*current;
 
 	if (lsts[1])
 		return (-1);
@@ -42,5 +42,6 @@ int	main(int argc, char *argv[])
 		push_sort(lsts);
 	if (check(lsts) == -1)
 		write (1, "\nKO\n", 4);
-	write (1, "\nOK!\n", 4);
+	else
+		write (1, "\nOK!\n", 4);
 }

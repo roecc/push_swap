@@ -6,7 +6,7 @@
 #    By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 12:18:38 by ligabrie          #+#    #+#              #
-#    Updated: 2023/07/04 17:50:31 by ligabrie         ###   ########.fr        #
+#    Updated: 2023/07/05 09:39:58 by ligabrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ swap.c \
 push.c \
 rotate.c \
 rev_rotate.c \
-push_sort.c
+push_sort.c \
+arr_utils.c \
+push_by_pivot.c
 OBJS	:= $(SRCS:.c=.o)
 all: $(NAME)
 $(NAME): $(OBJS)
