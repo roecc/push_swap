@@ -6,7 +6,7 @@
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 13:40:33 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/07/05 10:08:27 by ligabrie         ###   ########.fr       */
+/*   Updated: 2023/07/05 12:37:31 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	push_sort(t_list **lsts)
 
 	len = lst_len(lsts[0]);
 	arr = lst_to_arr(lsts[0]);
-	arr = arr_sort(arr);
+	arr = arr_sort(arr, len);
 	if (len == 5)
 	{
 		sort_five(lsts, arr);

@@ -6,7 +6,7 @@
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 09:36:08 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/07/05 09:37:14 by ligabrie         ###   ########.fr       */
+/*   Updated: 2023/07/05 12:40:32 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	*lst_to_arr(t_list *lst)
 	return (tmp);
 }
 
-int	*arr_sort(int *arr)
+int	*arr_sort(int *arr, int len)
 {
 	int	i;
 	int	sortet;
@@ -52,7 +52,7 @@ int	*arr_sort(int *arr)
 	{
 		sortet = 1;
 		i = -1;
-		while (arr[++i + 1])
+		while (++i + 1 < len)
 		{
 			if (arr[i] > arr[i + 1])
 			{

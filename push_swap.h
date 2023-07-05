@@ -6,7 +6,7 @@
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 12:29:12 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/07/05 12:19:18 by ligabrie         ###   ########.fr       */
+/*   Updated: 2023/07/05 12:37:02 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	rrr(t_list *lsts[]);
 void	push_sort(t_list **lsts);
 
 int		*lst_to_arr(t_list *lst);
-int		*arr_sort(int *arr);
+int		*arr_sort(int *arr, int len);
 
 void	push_by_pivot(t_list **lsts, int mid, int mid_mid);
 void	rev_push_by_pivot(t_list **lsts, int mid, int mid_mid);
