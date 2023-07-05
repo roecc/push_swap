@@ -6,7 +6,7 @@
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 20:42:33 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/07/04 12:47:39 by ligabrie         ###   ########.fr       */
+/*   Updated: 2023/07/05 11:33:57 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-extern int		ft_atoi(const char *str);
+extern long int	ft_atoi(const char *str);
 extern void		ft_bzero(void *s, size_t n);
 extern void		*ft_calloc(size_t count, size_t size);
 extern int		ft_isalnum(int c);

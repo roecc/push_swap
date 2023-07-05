@@ -6,7 +6,7 @@
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 12:29:12 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/07/05 09:39:42 by ligabrie         ###   ########.fr       */
+/*   Updated: 2023/07/05 12:19:18 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include "./libft/libft.h"
 
-t_list	*parse_int(char **av);
+//t_list	*parse_int(char **av);
+int		parse_int(char **av, t_list **lsts);
 t_list	*lst_new(int data);
 void	lst_free(t_list *lsts[]);
 int		lst_len(t_list *lst);
@@ -44,5 +45,7 @@ int		*arr_sort(int *arr);
 
 void	push_by_pivot(t_list **lsts, int mid, int mid_mid);
 void	rev_push_by_pivot(t_list **lsts, int mid, int mid_mid);
+
+int		is_sorted(t_list **lsts);
 
 #endif
