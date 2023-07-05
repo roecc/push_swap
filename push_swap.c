@@ -6,7 +6,7 @@
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 12:29:01 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/07/05 09:47:17 by ligabrie         ###   ########.fr       */
+/*   Updated: 2023/07/05 09:59:41 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ int	check(t_list **lsts)
 	return (1);
 }
 
+void sort_two(t_list **lsts)
+{
+	if (lsts[0]->data > lsts[0]->next->data)
+		ra(lsts);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_list	*lsts[2];
@@ -44,4 +50,5 @@ int	main(int argc, char *argv[])
 		write (1, "\nKO\n", 4);
 	else
 		write (1, "\nOK!\n", 4);
+	lst_free(lsts);
 }

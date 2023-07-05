@@ -6,7 +6,7 @@
 /*   By: ligabrie <ligabrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 13:40:33 by ligabrie          #+#    #+#             */
-/*   Updated: 2023/07/05 09:43:36 by ligabrie         ###   ########.fr       */
+/*   Updated: 2023/07/05 10:08:27 by ligabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	push_sort(t_list **lsts)
 	if (len == 5)
 	{
 		sort_five(lsts, arr);
+		free (arr);
 		return ;
 	}
 	recu(arr, 2, len, lsts);
